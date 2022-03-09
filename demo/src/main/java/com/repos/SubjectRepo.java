@@ -5,35 +5,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.models.Subject;
 import com.models.User;
 import com.repo.interfaces.IRepoSubject;
 
-@Repository("hashMapSubjectRepo")
+@Repository()
 public class SubjectRepo implements IRepoSubject
 {
-	Map<Long, Subject> repo = new HashMap<>();
-	Long id = 0L;
+	private JdbcTemplate template;
 
 	@Override
 	public List<Subject> getAll() 
 	{
-		return new ArrayList<Subject>(repo.values());
+		List<Subject> result = new ArrayList<>();
+		return result;
 	}
 
 	@Override
 	public Subject getByID(Long id) 
 	{
-		return repo.get(id);
+		return null;
 	}
 
 	@Override
 	public void add(Subject object) 
 	{
-		object.setId(++id);
-		repo.put(id, object);
+		
 		
 	}
 
